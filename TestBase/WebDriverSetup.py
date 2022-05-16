@@ -5,6 +5,7 @@ from time import sleep
 import urllib3
 
 
+
 class WebDriverSetup(unittest.TestCase):
     @classmethod
     def setUp(self):
