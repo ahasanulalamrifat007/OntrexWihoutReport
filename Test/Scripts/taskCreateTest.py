@@ -38,3 +38,34 @@ class TestTaskCreate(WebDriverSetup):
         CostCenter = "Test cost center V 0.3.18"
         Task_Create.customer_packagereq(PackageName,"Auto Create",Contract,SLA, "QA Selise","QAR Invite User STG",PackageTechnology,OsDef,UploadFile,CostCenter )
 
+    def test_admintaskcreate_success(self):
+        driver = self.driver
+        base_URL = "https://stage-ontrex.selise.biz/"
+        taskId = "task-management/task-list"
+        driver.get(base_URL + taskId)
+
+        '""""""""Driver initialize """"'
+        Login_page = LoginPage(driver)
+        Task_Create = TaskCreate(driver)
+        time.sleep(5)
+        Login_page.login("superadmin@ontrex.ch", "2wsxXSW@")
+        time.sleep(5)
+
+        # try:
+        #     assert "Package-list < Package-request < Company | Ontrex SPA Portal"== driver.title
+        # except Exception as e:
+        #     raise
+        #     print("Title is wrong", format(e))
+
+        CustomerName ="Selise 18"
+        PackageName = "Auto Create OTX Admin - 19/05/2022-- 01"
+        Contract = "Mail Test"
+        #Contract = input("Enter Contract Name--- >")
+        SLA = "FLAT Rate"
+        #SLA = input("Enter SLA Name--- >")
+        PackageTechnology = "MacOS"
+        OsDef = "Stage Customer OS, QAR_Windows10, QAR_SP1 , ENG"
+        UploadFile = "C:\\Users\\ahasanul.rifat\\Desktop\\Testing\\sample.zip"
+        CostCenter = "Test cost center V 0.3.18"
+        Task_Create.admin_packagereq(CustomerName,PackageName,"Auto Create By OTX Admin",Contract,SLA, "QA Selise","QAR Invite User STG",PackageTechnology,OsDef,UploadFile,CostCenter )
+

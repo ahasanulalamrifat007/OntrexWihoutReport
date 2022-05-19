@@ -11,7 +11,7 @@ class TaskCreate():
     def __init__(self,driver):
         self.driver = driver
         self.makePackageReq_xpath = "//button/span[text()=' MAKE PACKAGE REQUEST ']"  # from customer
-        self.newTask_xpath = "//button/span/span[text()='New Task_Pages']"
+        self.newTask_xpath = "//button/span/span[text()='New Task']"
         self.customPackage_xpath = "//table/tr/td/p[text()='Custom package']"
         self.dpdPackage_xpath = "//table/tr/td/p[text()='New Product']"  # DPD Package from Admin
         self.customer_xpath = "//mat-select/div/div/span[text()='Customer']"
@@ -173,6 +173,40 @@ class TaskCreate():
         time.sleep(5)
         self.click_OkButton()
 
+
+    def admin_packagereq(self,CustomerName,PackageName,PackageDescription,Contract,SLA,CustomerRef,ContactPerson,PackageTechnology,OsDef,UploadFile,CostCenter):
+        self.click_NewTask()
+        time.sleep(5)
+        self.click_CustomPackage()
+        time.sleep(5)
+        self.enter_Customers(CustomerName)
+        time.sleep(5)
+        self.enter_PackageName(PackageName)
+        time.sleep(3)
+        self.enter_PackageDescription(PackageDescription)
+        time.sleep(3)
+        self.enter_Contract(Contract)
+        time.sleep(5)
+        self.enter_SLA(SLA)
+        time.sleep(5)
+        self.enter_CustomerRef(CustomerRef)
+        time.sleep(3)
+        self.enter_ContactPerson(ContactPerson)
+        time.sleep(3)
+        self.enter_PackageTechnology(PackageTechnology)
+        time.sleep(3)
+        self.enter_OsDef(OsDef)
+        time.sleep(3)
+        self.enter_UploadFile(UploadFile)
+        time.sleep(5)
+        self.enter_CostCenter(CostCenter)
+        self.click_Priority()
+        time.sleep(3)
+        self.click_Complexity()
+        time.sleep(5)
+        self.click_Confirm()
+        time.sleep(5)
+        self.click_OkButton()
 
 
 
